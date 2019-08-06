@@ -2,6 +2,12 @@
 
 
 def opti_lastDigitFibonacci(number):
+    """
+    Realization of fibonacci algorithm, that returns only last digit.
+    This saves memory and excludes situation of overflow
+    :param number: index of fibonacci sequence
+    :return: digit from 0 to 9
+    """
     if number < 2:
         return number
     arr = [0 for i in range(number)]

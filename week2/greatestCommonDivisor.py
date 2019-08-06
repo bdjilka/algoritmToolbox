@@ -2,13 +2,15 @@
 
 
 def gcd(a, b):
+    """
+    Recursive algorithm of finding the greatest common divisor.
+    :param a: integer number
+    :param b: integer number
+    :return: integer number
+    """
     if b == 0:
         return a
     return gcd(b, a % b)
-
-
-def opti_gsd(a, b):
-    return a*b
 
 
 if __name__ == '__main__':

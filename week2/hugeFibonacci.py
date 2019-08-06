@@ -2,6 +2,13 @@
 
 
 def findCycle(number, modulo):
+    """
+    Find cycle of reminders in fibonacci sequence.
+    :param number: index in sequence
+    :param modulo: integer number
+    :return: if loop is found earlier than required number, returned length of cycle and array of reminders, else
+    returned required number itself
+    """
     cycle = 2
     d = '0,1,'
     f2 = 0
@@ -18,6 +25,15 @@ def findCycle(number, modulo):
 
 
 def opti_fibonacci(number, modulo):
+    """
+    Modified fibonacci algorithm to work with big numbers. It finds not whole numbers but its reminder from
+    division of fibonacci[number] by modulo number, where fibonacci[i] is i-th number in fibonacci sequence.
+
+    As fibonacci sequence of reminders is periodic, we can find this period and cut number of iterations.
+    :param number: index of fibonacci sequence number required to find
+    :param modulo: positive integer number more than 2
+    :return: required fibonacci number
+    """
     if number < 2:
         return number % modulo
 

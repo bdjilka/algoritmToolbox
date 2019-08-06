@@ -2,6 +2,12 @@
 
 
 def max_pairwise_product(numbers):
+    """
+    Naive realization on maximum pairwise product algorithm.
+    Complexity is O(n^2)
+    :param numbers: array of not negative integers
+    :return: maximum multiple of two numbers from array
+    """
     n = len(numbers)
     max_product = 0
     for first in range(n):
@@ -12,6 +18,12 @@ def max_pairwise_product(numbers):
 
 
 def optimax_pairwise_product(numbers):
+    """
+    Optimized realization on maximum pairwise product algorithm.
+    Complexity is O(n)
+    :param numbers: array of not negative integers
+    :return: maximum multiple of two numbers from array
+    """
     n = len(numbers)
     max1 = numbers[0] if numbers[0] > numbers[1] else numbers[1]
     max2 = numbers[1] if numbers[0] > numbers[1] else numbers[0]
