@@ -17,22 +17,33 @@ def findCycle(number):
         d += '{},'.format(str((f2 + f1) % 10))
         cycle += 1
         f2, f1 = f1, (f2 + f1) % 10
+
         if len(d) % 2 == 0:
             length = int(len(d) / 2)
+
             if d[0:length] == d[length:len(d)]:
-                return {'ok': True, 'cycle': int(cycle/2), 'arr': d.split(',')[0:int(cycle/2)]}
-    return {'ok': False, 'cycle': int(d.split(',')[-2])}
+                return {
+                    'ok': True,
+                    'cycle': int(cycle/2),
+                    'arr': d.split(',')[0:int(cycle/2)]
+                }
+    return {
+        'ok': False,
+        'cycle': int(d.split(',')[-2])
+    }
 
 
 def lastDigitOfFibonacciSum(number):
     """
     Finds the last digit of sum of this first 'number' fibonacci numbers.
-    Algorithm is finds the 'number + 2' number in sequence and subtracts 1 from it.
+    Algorithm finds the 'number + 2' number in sequence and subtracts 1 from it.
 
     'number' can be very big (up to 10**14), so iteration approach is too slow. Because of it was firstly algorithm
     tries to find cycle of reminders.
     :param number: integer number
     :return: integer from 0 to 9
+
+    ----The idea and realization repeats file hugeFibonacci.py----
     """
     if number < 2:
         return number

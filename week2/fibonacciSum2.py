@@ -13,15 +13,24 @@ def findCycle(n, m):
     d = '0,1,'
     f2 = 0
     f1 = 1
+
     for i in range(2, n + 3):
         d += '{},'.format(str((f2 + f1) % 10))
         cycle += 1
         f2, f1 = f1, (f2 + f1) % 10
+
         if len(d) % 2 == 0:
             length = int(len(d) / 2)
+
             if d[0:length] == d[length:len(d)]:
-                return {'ok': True, 'cycle': int(cycle/2), 'arr': d.split(',')[0:int(cycle/2)]}
-    return {'ok': False, 'cycle': [int(d.split(',')[m+1]), int(d.split(',')[-2])]}
+                return {'ok': True,
+                        'cycle': int(cycle/2),
+                        'arr': d.split(',')[0:int(cycle/2)]
+                        }
+    return {
+        'ok': False,
+        'cycle': [int(d.split(',')[m+1]), int(d.split(',')[-2])]
+    }
 
 
 def lastDigitOfFibonacciSum(m, n):
@@ -34,6 +43,8 @@ def lastDigitOfFibonacciSum(m, n):
     :param m: integer number
     :param n: integer number more or equal to m
     :return: integer from 0 to 9
+
+    ----The idea and realization repeats file hugeFibonacci.py----
     """
     if n < 2:
         return n - m

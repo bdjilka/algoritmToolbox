@@ -13,15 +13,24 @@ def findCycle(number):
     d = '0,1,'
     f2 = 0
     f1 = 1
+
     for i in range(2, number + 2):
         d += '{},'.format(str((f2 + f1) % 10))
         cycle += 1
         f2, f1 = f1, (f2 + f1) % 10
+
         if len(d) % 2 == 0:
             length = int(len(d) / 2)
+
             if d[0:length] == d[length:len(d)]:
-                return {'ok': True, 'cycle': int(cycle/2), 'arr': d.split(',')[0:int(cycle/2)]}
-    return {'ok': False, 'cycle': [int(d.split(',')[-3]), int(d.split(',')[-2])]}
+                return {'ok': True,
+                        'cycle': int(cycle/2),
+                        'arr': d.split(',')[0:int(cycle/2)]
+                        }
+    return {
+        'ok': False,
+        'cycle': [int(d.split(',')[-3]), int(d.split(',')[-2])]
+    }
 
 
 def lastDigitOfFibonacciSquareSum(number):
@@ -33,6 +42,8 @@ def lastDigitOfFibonacciSquareSum(number):
     Because of it firstly algorithm tries to find cycle of reminders.
     :param number: integer number
     :return: integer from 0 to 9
+
+    ----The idea and realization repeats file hugeFibonacci.py----
     """
     if number < 2:
         return number

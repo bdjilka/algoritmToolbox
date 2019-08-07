@@ -8,6 +8,7 @@ def gcd(a, b):
     :param b: integer number
     :return: integer number
     """
+    # the algorithm is finished, when reminder from division (a % b) is equal to 0
     if b == 0:
         return a
     return gcd(b, a % b)
